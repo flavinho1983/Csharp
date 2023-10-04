@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -17,55 +18,30 @@ namespace WindowsFormsApp1
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
-            int v1, v2, total;
-            v1 = Convert.ToInt32 (textBox1.Text);
-            v2 = Convert.ToInt32 (textBox2.Text);
-            total = v1 + v2;
-            textBox3.Text = total.ToString();
+
+
+            if (textBox1.Text == "flavio" && textBox2.Text == "123") //condição de login e senha
+            {
+                Form2 frm = new Form2(); // abre o formulario novo
+                frm.Show(); // aparece o formulário
+                this.Hide(); //esconde a tela anterior
+            }
+            else
+            {
+                MessageBox.Show("Login ou senha errados!"); // senão da negativa de splashscreen
+            }
             
 
 
 
+
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
-            int v1, v2, total;
-            v1 = Convert.ToInt32(textBox1.Text);
-            v2 = Convert.ToInt32(textBox2.Text);
-            total = v1 - v2;
-            textBox3.Text = total.ToString();
-        }
 
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-            decimal v1, v2, total;
-            v1 = Convert.ToInt32(textBox1.Text);
-            v2 = Convert.ToInt32(textBox2.Text);
-            total = v1 / v2;
-            textBox3.Text = total.ToString();
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            int v1, v2, total;
-            v1 = Convert.ToInt32(textBox1.Text);
-            v2 = Convert.ToInt32(textBox2.Text);
-            total = v1 * v2;
-            textBox3.Text = total.ToString();
         }
     }
 }
